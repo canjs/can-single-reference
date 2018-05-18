@@ -1,0 +1,53 @@
+{
+  "name": "can-single-reference",
+  "version": "0.0.0",
+  "description": "Assign a value to a function that can be collected later",
+  "homepage": "http://canjs.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/canjs/can-single-reference.git"
+  },
+  "author": {
+    "name": "DoneJS Contributors",
+    "email": "core@donejs.com",
+    "url": "http://donejs.com"
+  },
+  "scripts": {
+    "preversion": "npm test && npm run build",
+    "version": "git commit -am \"Update version number\" && git checkout -b release && git add -f dist/",
+    "postpublish": "git push --tags && git checkout master && git branch -D release && git push",
+    "testee": "testee test.html --browsers firefox",
+    "test": "npm run jshint && npm run testee",
+    "jshint": "jshint ./*.js --config",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish",
+    "build": "node build.js",
+    "develop": "done-serve --static --develop --port 8080"
+  },
+  "main": "can-single-reference",
+  "keywords": [
+    "canjs",
+    "donejs",
+    "donejs-plugin"
+  ],
+  "steal": {
+    "npmIgnore": [
+      "testee",
+      "generator-donejs",
+      "donejs-cli",
+      "steal-tools"
+    ]
+  },
+  "dependencies": {
+    "can-cid": "^1.1.2"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.1",
+    "steal": "^1.6.5",
+    "steal-qunit": "^1.0.1",
+    "steal-tools": "^1.11.3",
+    "testee": "^0.7.0"
+  },
+  "license": "MIT"
+}
