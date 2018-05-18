@@ -1,6 +1,6 @@
 {
   "name": "can-single-reference",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Assign a value to a function that can be collected later",
   "homepage": "http://canjs.com",
   "repository": {
