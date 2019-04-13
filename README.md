@@ -1,6 +1,6 @@
 # can-single-reference
 
-[![Build Status](https://travis-ci.org/canjs/can-single-reference.svg?branch=master)](https://travis-ci.org/canjs/can-single-reference)
+[![Build Status](https://travis-ci.org/canjs/can-single-reference.svg?branch=master)](https://travis-ci.org/canjs/can-single-reference) [![Greenkeeper badge](https://badges.greenkeeper.io/canjs/can-single-reference.svg)](https://greenkeeper.io/)
 
 Assign a value to a function that can be collected later
 
