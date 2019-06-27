@@ -37,7 +37,7 @@ singleReference = {
         var keyName = getKeyName(obj, key, extraKey);
         var value = obj[keyName];
 		delete obj[keyName];
-		delete obj['_cid'];
+		delete obj._cid;
         return value;
     }
 };
