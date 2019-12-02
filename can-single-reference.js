@@ -3,8 +3,8 @@ var CID = require("can-cid");
 
 var singleReference;
 
-function getKeyName(obj, key, extraKey) {
-	var keyName = extraKey ? CID(obj, key) + ":" + extraKey : CID(obj, key);
+function getKeyName(key, extraKey) {
+	var keyName = extraKey ? CID(key) + ":" + extraKey : CID(key);
 	return keyName || key;
 }
 
@@ -26,20 +26,19 @@ function getKeyName(obj, key, extraKey) {
 	};
 } else {*/
 singleReference = {
-    // obj is a function ... we need to place `value` on it so we can retreive it
-    // we can't use a global map
-    set: function(obj, key, value, extraKey){
-        // check if it has a single reference map
-        obj[getKeyName(obj, key, extraKey)] = value;
-    },
+	// obj is a function ... we need to place `value` on it so we can retreive it
+	// we can't use a global map
+	set: function(obj, key, value, extraKey){
+		// check if it has a single reference map
+		obj[getKeyName(key, extraKey)] = value;
+	},
 
-    getAndDelete: function(obj, key, extraKey){
-        var keyName = getKeyName(obj, key, extraKey);
-        var value = obj[keyName];
+	getAndDelete: function(obj, key, extraKey){
+		var keyName = getKeyName(key, extraKey);
+		var value = obj[keyName];
 		delete obj[keyName];
-		delete obj._cid;
-        return value;
-    }
+		return value;
+	}
 };
 /*}*/
 
